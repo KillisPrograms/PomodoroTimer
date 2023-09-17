@@ -44,6 +44,13 @@ public class Main {
         System.out.println("Hello world!");
         createDefaultMysqlConfig(String.format("%s/%s", CONFIG_FOLDER_NAME, MYSQL_CONFIG_NAME));
         MainWindow window = new MainWindow(colorDesign, fontDesign, borderDesign);
+        window.setWorkCategories(List.of(
+                new WorkCategory(1, "GameDev Unreal Engine", "Game Development with Unreal Engine"),
+                new WorkCategory(2, "GameDev Unity Engine", "Game Development with Unity Engine"),
+                new WorkCategory(3, "Random Project", "Game Development with Unity Engine"),
+                new WorkCategory(4, "Day Planer", "Game Development with Unity Engine"),
+                new WorkCategory(5, "Website", "Game Development with Unity Engine")
+        ));
         window.setVisible(true);
     }
 

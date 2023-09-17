@@ -1,5 +1,6 @@
 package net.justkilli.pomodorotimer.gui.windows;
 
+import net.justkilli.pomodorotimer.gui.components.ColorArrowUI;
 import net.justkilli.pomodorotimer.gui.design.BorderDesign;
 import net.justkilli.pomodorotimer.gui.design.ColorDesign;
 import net.justkilli.pomodorotimer.gui.design.FontDesign;
@@ -97,6 +98,7 @@ public class MainWindow extends JFrame {
     public void updateDesign() {
         designContentPane();
         designNorthPanel();
+        designSouthPanel();
     }
 
     private void designContentPane() {
@@ -112,11 +114,12 @@ public class MainWindow extends JFrame {
 
     }
 
+    private void designSouthPanel() {
+        designBasePanel(pnlSouth);
 
-        btnWork.setBackground(colorDesign.compBackground());
-        btnWork.setForeground(colorDesign.buttonText());
-        btnWork.setFont(fontDesign.buttons());
-        btnWork.setBorder(borderDesign.buttons());
+        designComboBox(cbWorkCategories);
+        designButton(btnStart);
+    }
 
     private void designButton(JButton button) {
         button.setBackground(colorDesign.compBackground());
@@ -125,6 +128,13 @@ public class MainWindow extends JFrame {
         button.setBorder(borderDesign.buttons());
     }
 
+    private void designComboBox(JComboBox<?> comboBox) {
+        comboBox.setBackground(colorDesign.compBackground());
+        comboBox.setForeground(colorDesign.text());
+        comboBox.setFont(fontDesign.text());
+        comboBox.setBorder(borderDesign.components());
+        comboBox.setUI(new ColorArrowUI(colorDesign.compBackground(), colorDesign.compBackground(), colorDesign.text(), colorDesign.compBackground()));
+    }
 
     private void designBasePanel(JPanel panel) {
         panel.setBackground(colorDesign.background());
