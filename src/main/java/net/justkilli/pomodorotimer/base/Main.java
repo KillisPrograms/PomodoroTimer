@@ -8,12 +8,14 @@ import net.justkilli.pomodorotimer.gui.design.BorderDesign;
 import net.justkilli.pomodorotimer.gui.design.ColorDesign;
 import net.justkilli.pomodorotimer.gui.design.FontDesign;
 import net.justkilli.pomodorotimer.gui.windows.MainWindow;
+import net.justkilli.pomodorotimer.model.WorkCategory;
 
 import java.awt.*;
+import java.util.List;
 
 public class Main {
     private static final ColorDesign colorDesign = new ColorDesign(
-            new Color(44, 62, 80),
+            new Color(200, 200, 200),
             new Color(231, 76, 60),
             new Color(255, 165, 0),
             new Color(243, 156, 18),
@@ -33,7 +35,7 @@ public class Main {
     private static final BorderDesign borderDesign = new BorderDesign(
             new RoundBorder(colorDesign.compBackground(), 5, 10),
             new RoundBorder(colorDesign.compBackground(), 5, 10),
-            new RoundBorder(colorDesign.compBackground(), 5, 10)
+            new RoundBorder(colorDesign.compBackground(), 2, 5)
     );
     private static final String CONFIG_FOLDER_NAME = "configs";
     private static final String MYSQL_CONFIG_NAME = "mysql.yml";
