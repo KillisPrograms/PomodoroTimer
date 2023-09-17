@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2aa18de4-b119-44b9-a047-4ae8f8e9cc32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/base/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/base/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/gui/windows/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/gui/windows/MainWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694941211295</updated>
-      <workItem from="1694941212332" duration="11008000" />
+      <workItem from="1694941212332" duration="12133000" />
     </task>
     <servers />
   </component>
