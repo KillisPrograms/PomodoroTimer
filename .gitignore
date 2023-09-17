@@ -32,3 +32,6 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .idea/discord.xml
+
+#Project
+configs
