@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aa18de4-b119-44b9-a047-4ae8f8e9cc32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/KillisEssentials-0.4.5-DEV.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/gui/components/RoundBorder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/gui/design/BorderDesign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/gui/design/ColorDesign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/gui/design/FontDesign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/base/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/base/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/gui/windows/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/gui/windows/MainWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +25,13 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -30,6 +42,9 @@
   "associatedIndex": 1
 }]]></component>
   <component name="ProjectId" id="2VW9wgVliIo9E2mK6Z6ajp64zoN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,6 +53,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Programmieren/java/Projects/PomodoroTimer/libs",
@@ -53,14 +69,17 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Programmieren\java\Projects\PomodoroTimer\libs" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.justkilli.pomodorotimer.gui.components" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="RUN" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="net.justkilli.Main" />
+      <option name="MAIN_CLASS_NAME" value="net.justkilli.pomodorotimer.base.Main" />
       <module name="PomodoroTimer.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="net.justkilli.*" />
+          <option name="PATTERN" value="net.justkilli.pomodorotimer.base.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -77,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694941211295</updated>
-      <workItem from="1694941212332" duration="1197000" />
+      <workItem from="1694941212332" duration="5719000" />
     </task>
     <servers />
   </component>
