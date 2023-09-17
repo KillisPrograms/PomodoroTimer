@@ -3,6 +3,7 @@ package net.justkilli.pomodorotimer.base;
 import net.justkilli.killisessentials.config.handler.IConfigHandler;
 import net.justkilli.killisessentials.config.handler.YAMLConfigHandler;
 import net.justkilli.killisessentials.config.values.ConfigValue;
+import net.justkilli.pomodorotimer.gui.windows.MainWindow;
 
 public class Main {
 
@@ -12,6 +13,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         createDefaultMysqlConfig(String.format("%s/%s", CONFIG_FOLDER_NAME, MYSQL_CONFIG_NAME));
+        MainWindow window = new MainWindow();
+        window.setVisible(true);
     }
 
     public static IConfigHandler createDefaultMysqlConfig(String path) {
