@@ -24,9 +24,10 @@ public class MainWindow extends JFrame {
     private ColorDesign colorDesign;
     private FontDesign fontDesign;
     private BorderDesign borderDesign;
-    private JPanel pnlNorth, pnlSouth;
+    private JPanel pnlNorth, pnlSouth, pnlCenter;
     private JButton btnWork, btnShortBreak, btnLongBreak, btnStart;
     private JComboBox<WorkCategory> cbWorkCategories;
+    private JLabel lblTimer;
 
     public MainWindow(ColorDesign colorDesign, FontDesign fontDesign, BorderDesign borderDesign) {
         this.colorDesign = colorDesign;
@@ -47,9 +48,11 @@ public class MainWindow extends JFrame {
     public void build() {
         pnlNorth = buildNorthPanel();
         pnlSouth = buildSouthPanel();
+        pnlCenter = buildCenterPanel();
 
         getContentPane().add(pnlNorth, BorderLayout.NORTH);
         getContentPane().add(pnlSouth, BorderLayout.SOUTH);
+        getContentPane().add(pnlCenter, BorderLayout.CENTER);
     }
 
     public JPanel buildNorthPanel() {
@@ -84,6 +87,19 @@ public class MainWindow extends JFrame {
 
         panel.add(cbWorkCategories);
         panel.add(btnStart);
+
+        return panel;
+    }
+
+    private JPanel buildCenterPanel() {
+        JPanel panel = new JPanel(new GridLayout(0, 1));
+        panel.setPreferredSize(CONTROL_PNL_SIZE);
+
+        lblTimer = new JLabel("Timer: 25:00 min");
+        lblTimer.setHorizontalAlignment(JLabel.CENTER);
+        lblTimer.setVerticalAlignment(JLabel.CENTER);
+
+        panel.add(lblTimer);
 
         return panel;
     }
@@ -179,4 +195,10 @@ public class MainWindow extends JFrame {
     }
 
     //SOUTH PANEL END
+
+    //CENTER PANEL START
+    public void updateTimer(String newValue) {
+        lblTimer.setText(String.format("%s min", newValue));
+    }
+    //CENTER PANEL END
 }

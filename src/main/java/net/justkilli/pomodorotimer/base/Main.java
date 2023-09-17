@@ -51,6 +51,7 @@ public class Main {
                 new WorkCategory(4, "Day Planer", "Game Development with Unity Engine"),
                 new WorkCategory(5, "Website", "Game Development with Unity Engine")
         ));
+        window.updateTimer("11:11");
         window.setVisible(true);
     }
 
