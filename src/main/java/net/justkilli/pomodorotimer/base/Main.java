@@ -1,4 +1,4 @@
-package net.justkilli;
+package net.justkilli.pomodorotimer.base;
 
 import net.justkilli.killisessentials.config.handler.IConfigHandler;
 import net.justkilli.killisessentials.config.handler.YAMLConfigHandler;
