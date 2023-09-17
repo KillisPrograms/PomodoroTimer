@@ -115,6 +115,7 @@ public class MainWindow extends JFrame {
         designContentPane();
         designNorthPanel();
         designSouthPanel();
+        designCenterPanel();
     }
 
     private void designContentPane() {
@@ -137,6 +138,12 @@ public class MainWindow extends JFrame {
         designButton(btnStart);
     }
 
+    private void designCenterPanel() {
+        designBasePanel(pnlCenter);
+
+        designLabel(lblTimer);
+    }
+
     private void designButton(JButton button) {
         button.setBackground(colorDesign.compBackground());
         button.setForeground(colorDesign.buttonText());
@@ -150,6 +157,13 @@ public class MainWindow extends JFrame {
         comboBox.setFont(fontDesign.text());
         comboBox.setBorder(borderDesign.components());
         comboBox.setUI(new ColorArrowUI(colorDesign.compBackground(), colorDesign.compBackground(), colorDesign.text(), colorDesign.compBackground()));
+    }
+
+    private void designLabel(JLabel label) {
+        label.setBackground(colorDesign.compBackground());
+        label.setForeground(colorDesign.text());
+        label.setFont(fontDesign.timer());
+        label.setBorder(borderDesign.components());
     }
 
     private void designBasePanel(JPanel panel) {

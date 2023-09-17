@@ -30,7 +30,8 @@ public class Main {
             new Font("Arial", Font.PLAIN, 30),
             new Font("Arial", Font.PLAIN, 20),
             new Font("Arial", Font.PLAIN, 15),
-            new Font("Arial", Font.BOLD, 20)
+            new Font("Arial", Font.BOLD, 20),
+            new Font("Arial", Font.BOLD, 80)
     );
     private static final BorderDesign borderDesign = new BorderDesign(
             new RoundBorder(colorDesign.compBackground(), 5, 10),
