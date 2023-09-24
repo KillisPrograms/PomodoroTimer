@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aa18de4-b119-44b9-a047-4ae8f8e9cc32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/controller/WindowCloseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/controller/WorkController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/model/WorkType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/base/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/base/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/gui/windows/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/gui/windows/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/model/database/DBAccessLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/model/database/DBAccessLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/model/database/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/model/database/DBHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +121,7 @@
       <workItem from="1695319947097" duration="599000" />
       <workItem from="1695387981172" duration="1201000" />
       <workItem from="1695395051009" duration="46000" />
-      <workItem from="1695579344991" duration="9493000" />
+      <workItem from="1695579344991" duration="9918000" />
     </task>
     <servers />
   </component>
