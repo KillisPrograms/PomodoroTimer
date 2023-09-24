@@ -14,4 +14,18 @@ public class DBAccessLayer extends net.justkilli.killisessentials.database.DBAcc
         return querySQLRequest(sqlQuery);
     }
 
+    public boolean startTime(int categoryId, String type) {
+        String sqlQuery = String.format("INSERT INTO Time (CategoryId, Type) VALUES (%d, '%s')", categoryId, type);
+        return executeSQLRequest(sqlQuery);
+    }
+
+    public boolean stopTime(int timeId) {
+        String sqlQuery = "UPDATE Time SET EndTimestamp=CURRENT_TIMESTAMP WHERE TimeID=" + timeId;
+        return executeSQLRequest(sqlQuery);
+    }
+
+    public ResultSet getLastTimeId() {
+        String sqlQuery = "SELECT TimeID FROM Time ORDER BY TimeID DESC LIMIT 1";
+        return querySQLRequest(sqlQuery);
+    }
 }
