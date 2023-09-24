@@ -5,7 +5,9 @@ import net.justkilli.killisessentials.config.handler.YAMLConfigHandler;
 import net.justkilli.killisessentials.config.values.ConfigValue;
 import net.justkilli.killisessentials.database.DatabaseCreator;
 import net.justkilli.killisessentials.database.DatabaseTable;
+import net.justkilli.pomodorotimer.controller.WindowCloseController;
 import net.justkilli.pomodorotimer.controller.WorkCategoriesController;
+import net.justkilli.pomodorotimer.controller.WorkController;
 import net.justkilli.pomodorotimer.gui.components.RoundBorder;
 import net.justkilli.pomodorotimer.gui.design.BorderDesign;
 import net.justkilli.pomodorotimer.gui.design.ColorDesign;
@@ -13,6 +15,7 @@ import net.justkilli.pomodorotimer.gui.design.FontDesign;
 import net.justkilli.pomodorotimer.gui.windows.MainWindow;
 import net.justkilli.pomodorotimer.model.WorkCategory;
 import net.justkilli.pomodorotimer.model.WorkCategoryModel;
+import net.justkilli.pomodorotimer.model.WorkModel;
 import net.justkilli.pomodorotimer.model.database.DBAccessLayer;
 import net.justkilli.pomodorotimer.model.database.DBHandler;
 
@@ -56,15 +59,11 @@ public class Main {
         dbHandler = new DBHandler(sql);
         createDatabases();
         MainWindow window = new MainWindow(colorDesign, fontDesign, borderDesign);
-        new WorkCategoriesController(window, new WorkCategoryModel(dbHandler));
-        /*window.setWorkCategories(List.of(
-                new WorkCategory(1, "GameDev Unreal Engine", "Game Development with Unreal Engine"),
-                new WorkCategory(2, "GameDev Unity Engine", "Game Development with Unity Engine"),
-                new WorkCategory(3, "Random Project", "Game Development with Unity Engine"),
-                new WorkCategory(4, "Day Planer", "Game Development with Unity Engine"),
-                new WorkCategory(5, "Website", "Game Development with Unity Engine")
-        ));*/
-        window.updateTimer("11:11");
+        WorkCategoryModel workCategoryModel = new WorkCategoryModel(dbHandler);
+        WorkModel workModel = new WorkModel(sql, dbHandler);
+        new WorkCategoriesController(window, workCategoryModel);
+        new WorkController(window, workModel);
+        new WindowCloseController(window, workModel);
         window.setVisible(true);
     }
 
@@ -97,7 +96,6 @@ public class Main {
                 .addField(new DatabaseTable.Column("Description", DatabaseTable.ColumnType.LONG_TEXT, false, false, true, null))
                 .build();
     }
-
     private static DatabaseTable createTimeTable() {
         return new DatabaseTable.DatabaseTableBuilder("Time")
                 .addField(new DatabaseTable.Column("TimeID", DatabaseTable.ColumnType.INTEGER, true, true, true, null))
