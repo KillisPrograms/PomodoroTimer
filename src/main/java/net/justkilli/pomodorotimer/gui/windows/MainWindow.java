@@ -6,6 +6,7 @@ import net.justkilli.pomodorotimer.gui.design.ColorDesign;
 import net.justkilli.pomodorotimer.gui.design.FontDesign;
 import net.justkilli.pomodorotimer.model.WorkCategory;
 
+import java.awt.event.WindowAdapter;
 import java.util.List;
 import javax.swing.*;
 import java.awt.*;
@@ -38,8 +39,8 @@ public class MainWindow extends JFrame {
         updateDesign();
     }
 
-    public void init() {
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    private void init() {
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setSize(new Dimension(800, 800));
         setTitle(TITLE);
         getContentPane().setLayout(new BorderLayout(10, 10));
@@ -55,7 +56,7 @@ public class MainWindow extends JFrame {
         getContentPane().add(pnlCenter, BorderLayout.CENTER);
     }
 
-    public JPanel buildNorthPanel() {
+    private JPanel buildNorthPanel() {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 50, 10));
         panel.setPreferredSize(CONTROL_PNL_SIZE);
 
@@ -75,7 +76,7 @@ public class MainWindow extends JFrame {
         return panel;
     }
 
-    public JPanel buildSouthPanel() {
+    private JPanel buildSouthPanel() {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
         panel.setPreferredSize(CONTROL_PNL_SIZE);
 
@@ -95,7 +96,8 @@ public class MainWindow extends JFrame {
         JPanel panel = new JPanel(new GridLayout(0, 1));
         panel.setPreferredSize(CONTROL_PNL_SIZE);
 
-        lblTimer = new JLabel("Timer: 25:00 min");
+        lblTimer = new JLabel();
+        updateTimer("00:00:00");
         lblTimer.setHorizontalAlignment(JLabel.CENTER);
         lblTimer.setVerticalAlignment(JLabel.CENTER);
 
@@ -207,12 +209,10 @@ public class MainWindow extends JFrame {
     public void addBtnStartActionListener(ActionListener listener) {
         btnStart.addActionListener(listener);
     }
-
-    //SOUTH PANEL END
-
-    //CENTER PANEL START
     public void updateTimer(String newValue) {
-        lblTimer.setText(String.format("%s min", newValue));
+        lblTimer.setText(newValue);
     }
-    //CENTER PANEL END
+    public void changeBtnWorkText(String text) {
+        btnWork.setText(text);
+    }
 }
