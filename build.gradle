@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'net.justkilli'
-version = '0.1.2-DEV'
+version = '0.1.3-DEV'
 
 repositories {
     mavenCentral()

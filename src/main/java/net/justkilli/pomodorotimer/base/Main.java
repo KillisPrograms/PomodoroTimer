@@ -5,12 +5,14 @@ import net.justkilli.killisessentials.config.handler.YAMLConfigHandler;
 import net.justkilli.killisessentials.config.values.ConfigValue;
 import net.justkilli.killisessentials.database.DatabaseCreator;
 import net.justkilli.killisessentials.database.DatabaseTable;
+import net.justkilli.pomodorotimer.controller.WorkCategoriesController;
 import net.justkilli.pomodorotimer.gui.components.RoundBorder;
 import net.justkilli.pomodorotimer.gui.design.BorderDesign;
 import net.justkilli.pomodorotimer.gui.design.ColorDesign;
 import net.justkilli.pomodorotimer.gui.design.FontDesign;
 import net.justkilli.pomodorotimer.gui.windows.MainWindow;
 import net.justkilli.pomodorotimer.model.WorkCategory;
+import net.justkilli.pomodorotimer.model.WorkCategoryModel;
 import net.justkilli.pomodorotimer.model.database.DBAccessLayer;
 import net.justkilli.pomodorotimer.model.database.DBHandler;
 
@@ -54,13 +56,14 @@ public class Main {
         dbHandler = new DBHandler(sql);
         createDatabases();
         MainWindow window = new MainWindow(colorDesign, fontDesign, borderDesign);
-        window.setWorkCategories(List.of(
+        new WorkCategoriesController(window, new WorkCategoryModel(dbHandler));
+        /*window.setWorkCategories(List.of(
                 new WorkCategory(1, "GameDev Unreal Engine", "Game Development with Unreal Engine"),
                 new WorkCategory(2, "GameDev Unity Engine", "Game Development with Unity Engine"),
                 new WorkCategory(3, "Random Project", "Game Development with Unity Engine"),
                 new WorkCategory(4, "Day Planer", "Game Development with Unity Engine"),
                 new WorkCategory(5, "Website", "Game Development with Unity Engine")
-        ));
+        ));*/
         window.updateTimer("11:11");
         window.setVisible(true);
     }
