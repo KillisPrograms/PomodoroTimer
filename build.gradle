@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'net.justkilli'
-version = '0.1.0-DEV'
+version = '0.1.1-DEV'
 
 repositories {
     mavenCentral()
@@ -14,6 +14,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //Killis Essentials
     implementation 'com.github.Carleslc.Simple-YAML:Simple-Yaml:1.8.4'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.33'
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }

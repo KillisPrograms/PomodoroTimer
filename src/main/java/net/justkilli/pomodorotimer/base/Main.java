@@ -3,12 +3,16 @@ package net.justkilli.pomodorotimer.base;
 import net.justkilli.killisessentials.config.handler.IConfigHandler;
 import net.justkilli.killisessentials.config.handler.YAMLConfigHandler;
 import net.justkilli.killisessentials.config.values.ConfigValue;
+import net.justkilli.killisessentials.database.DatabaseCreator;
+import net.justkilli.killisessentials.database.DatabaseTable;
 import net.justkilli.pomodorotimer.gui.components.RoundBorder;
 import net.justkilli.pomodorotimer.gui.design.BorderDesign;
 import net.justkilli.pomodorotimer.gui.design.ColorDesign;
 import net.justkilli.pomodorotimer.gui.design.FontDesign;
 import net.justkilli.pomodorotimer.gui.windows.MainWindow;
 import net.justkilli.pomodorotimer.model.WorkCategory;
+import net.justkilli.pomodorotimer.model.database.DBAccessLayer;
+import net.justkilli.pomodorotimer.model.database.DBHandler;
 
 import java.awt.*;
 import java.util.List;
@@ -40,10 +44,15 @@ public class Main {
     );
     private static final String CONFIG_FOLDER_NAME = "configs";
     private static final String MYSQL_CONFIG_NAME = "mysql.yml";
+    private static DBAccessLayer sql;
+    private static DBHandler dbHandler;
 
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        createDefaultMysqlConfig(String.format("%s/%s", CONFIG_FOLDER_NAME, MYSQL_CONFIG_NAME));
+        IConfigHandler mysqlConfig = createDefaultMysqlConfig(String.format("%s/%s", CONFIG_FOLDER_NAME, MYSQL_CONFIG_NAME));
+        sql = new DBAccessLayer(mysqlConfig);
+        dbHandler = new DBHandler(sql);
+        createDatabases();
         MainWindow window = new MainWindow(colorDesign, fontDesign, borderDesign);
         window.setWorkCategories(List.of(
                 new WorkCategory(1, "GameDev Unreal Engine", "Game Development with Unreal Engine"),
@@ -67,4 +76,21 @@ public class Main {
         return mysqlConfigHandler;
     }
 
+    public static void createDatabases() {
+
+        List<DatabaseTable> databaseTables = List.of(
+                createWorkCategoryTable()
+        );
+
+        DatabaseCreator creator = new DatabaseCreator(sql, databaseTables);
+        creator.create();
+    }
+
+    private static DatabaseTable createWorkCategoryTable() {
+        return new DatabaseTable.DatabaseTableBuilder("WorkCategory")
+                .addField(new DatabaseTable.Column("WorkCategoryID", DatabaseTable.ColumnType.INTEGER, true, true, true, null))
+                .addField(new DatabaseTable.Column("Name", DatabaseTable.ColumnType.TEXT, false, false, true, null))
+                .addField(new DatabaseTable.Column("Description", DatabaseTable.ColumnType.LONG_TEXT, false, false, true, null))
+                .build();
+    }
 }
