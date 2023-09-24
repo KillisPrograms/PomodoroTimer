@@ -82,7 +82,8 @@ public class Main {
     public static void createDatabases() {
 
         List<DatabaseTable> databaseTables = List.of(
-                createWorkCategoryTable()
+                createWorkCategoryTable(),
+                createTimeTable()
         );
 
         DatabaseCreator creator = new DatabaseCreator(sql, databaseTables);
@@ -96,4 +97,15 @@ public class Main {
                 .addField(new DatabaseTable.Column("Description", DatabaseTable.ColumnType.LONG_TEXT, false, false, true, null))
                 .build();
     }
+
+    private static DatabaseTable createTimeTable() {
+        return new DatabaseTable.DatabaseTableBuilder("Time")
+                .addField(new DatabaseTable.Column("TimeID", DatabaseTable.ColumnType.INTEGER, true, true, true, null))
+                .addField(new DatabaseTable.Column("CategoryId", DatabaseTable.ColumnType.INTEGER, false, false, true, null))
+                .addField(new DatabaseTable.Column("Type", DatabaseTable.ColumnType.TEXT, false, false, true, null))
+                .addField(new DatabaseTable.Column("StartTimestamp", DatabaseTable.ColumnType.TIMESTAMP, false, false, true, "CURRENT_TIMESTAMP"))
+                .addField(new DatabaseTable.Column("EndTimestamp", DatabaseTable.ColumnType.TIMESTAMP, false, false, false, null))
+                .build();
+    }
+
 }
