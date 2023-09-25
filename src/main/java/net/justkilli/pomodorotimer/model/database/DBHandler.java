@@ -57,6 +57,23 @@ public class DBHandler extends net.justkilli.killisessentials.database.DBHandler
         return 1;
     }
 
+    public int getLastWorkCategoryId() {
+        ResultSet rs = sql.getLastWorkCategoryId();
+        if(resultSetIsEmpty(rs).isEmpty()) return 1;
+        try {
+            return rs.getInt("WorkCategoryID");
+        } catch(Exception ex) {
+            logger.log(LogLevel.ERROR, "Could not get last WorkCategoryID", ex);
+        } finally {
+            closeResultSet(rs);
+        }
+        return 1;
+    }
+
+    public boolean insertWorkCategory(WorkCategory workCategory) {
+        return sql.insertWorkCategory(workCategory.name(), workCategory.description());
+    }
+
     private WorkCategory getWorkCategoryFromResultSet(ResultSet rs) throws SQLException {
         int id = rs.getInt("WorkCategoryID");
         String name = rs.getString("Name");
