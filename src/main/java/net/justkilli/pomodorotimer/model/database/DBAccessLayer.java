@@ -28,4 +28,15 @@ public class DBAccessLayer extends net.justkilli.killisessentials.database.DBAcc
         String sqlQuery = "SELECT TimeID FROM Time ORDER BY TimeID DESC LIMIT 1";
         return querySQLRequest(sqlQuery);
     }
+
+    public ResultSet getLastWorkCategoryId() {
+        String sqlQuery = "SELECT WorkCategoryID FROM WorkCategory ORDER BY WorkCategoryID DESC LIMIT 1";
+        return querySQLRequest(sqlQuery);
+    }
+
+    public boolean insertWorkCategory(String name, String description) {
+        String sqlQuery = String.format("INSERT INTO WorkCategory (Name, Description) VALUES ('%s', '%s')", name, description);
+        return executeSQLRequest(sqlQuery);
+    }
+
 }
