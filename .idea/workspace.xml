@@ -7,9 +7,6 @@
     <list default="true" id="2aa18de4-b119-44b9-a047-4ae8f8e9cc32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/base/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/base/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/controller/WorkCategoriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/controller/WorkCategoriesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/model/database/DBAccessLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/model/database/DBAccessLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/model/database/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/justkilli/pomodorotimer/model/database/DBHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +120,7 @@
       <workItem from="1695387981172" duration="1201000" />
       <workItem from="1695395051009" duration="46000" />
       <workItem from="1695579344991" duration="10393000" />
-      <workItem from="1695650453110" duration="10364000" />
+      <workItem from="1695650453110" duration="10721000" />
     </task>
     <servers />
   </component>
