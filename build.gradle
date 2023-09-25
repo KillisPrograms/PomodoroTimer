@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'net.justkilli'
-version = '0.2.5-DEV'
+version = '0.2.6-DEV'
 
 repositories {
     mavenCentral()
@@ -21,4 +21,13 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes 'Main-Class': 'net.justkilli.pomodorotimer.base.Main'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
