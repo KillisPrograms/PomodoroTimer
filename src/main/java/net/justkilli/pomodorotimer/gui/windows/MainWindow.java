@@ -29,6 +29,9 @@ public class MainWindow extends JFrame {
     private JButton btnWork, btnShortBreak, btnLongBreak, btnStart;
     private JComboBox<WorkCategory> cbWorkCategories;
     private JLabel lblTimer;
+    private JMenuBar menuBar;
+    private JMenu mWindows;
+    private JMenuItem miOpenWorkCategories;
 
     public MainWindow(ColorDesign colorDesign, FontDesign fontDesign, BorderDesign borderDesign) {
         this.colorDesign = colorDesign;
@@ -51,9 +54,24 @@ public class MainWindow extends JFrame {
         pnlSouth = buildSouthPanel();
         pnlCenter = buildCenterPanel();
 
+        setJMenuBar(buildMenuBar());
+
         getContentPane().add(pnlNorth, BorderLayout.NORTH);
         getContentPane().add(pnlSouth, BorderLayout.SOUTH);
         getContentPane().add(pnlCenter, BorderLayout.CENTER);
+    }
+
+    private JMenuBar buildMenuBar() {
+        menuBar = new JMenuBar();
+
+        mWindows = new JMenu("Windows");
+
+        miOpenWorkCategories = new JMenuItem("WorkCategories");
+
+        mWindows.add(miOpenWorkCategories);
+        menuBar.add(mWindows);
+
+        return menuBar;
     }
 
     private JPanel buildNorthPanel() {
@@ -115,6 +133,7 @@ public class MainWindow extends JFrame {
 
     public void updateDesign() {
         designContentPane();
+        designMenuBar();
         designNorthPanel();
         designSouthPanel();
         designCenterPanel();
@@ -122,6 +141,30 @@ public class MainWindow extends JFrame {
 
     private void designContentPane() {
         getContentPane().setBackground(colorDesign.background());
+    }
+
+    private void designMenuBar() {
+        menuBar.setBackground(colorDesign.background());
+        menuBar.setBorder(borderDesign.components());
+
+        mWindows.setForeground(colorDesign.text());
+        mWindows.setBackground(colorDesign.compBackground());
+        mWindows.setFont(fontDesign.text());
+        mWindows.setBorder(null);
+
+        miOpenWorkCategories.setBackground(colorDesign.compBackground());
+        miOpenWorkCategories.setForeground(colorDesign.text());
+        miOpenWorkCategories.setFont(fontDesign.text());
+        miOpenWorkCategories.setBorder(borderDesign.components());
+        /*menuBar = new JMenuBar();
+
+        mWindows = new JMenu("Windows");
+
+        miOpenWorkCategories = new JMenuItem("WorkCategories");
+
+        mWindows.add(miOpenWorkCategories);
+        menuBar.add(mWindows);*/
+
     }
 
     private void designNorthPanel() {
@@ -214,5 +257,20 @@ public class MainWindow extends JFrame {
     }
     public void changeBtnWorkText(String text) {
         btnWork.setText(text);
+    }
+    public void addOpenWorkCategoriesActionListener(ActionListener listener) {
+        miOpenWorkCategories.addActionListener(listener);
+    }
+
+    public ColorDesign getColorDesign() {
+        return colorDesign;
+    }
+
+    public FontDesign getFontDesign() {
+        return fontDesign;
+    }
+
+    public BorderDesign getBorderDesign() {
+        return borderDesign;
     }
 }
