@@ -5,15 +5,13 @@ import net.justkilli.killisessentials.config.handler.YAMLConfigHandler;
 import net.justkilli.killisessentials.config.values.ConfigValue;
 import net.justkilli.killisessentials.database.DatabaseCreator;
 import net.justkilli.killisessentials.database.DatabaseTable;
-import net.justkilli.pomodorotimer.controller.WindowCloseController;
-import net.justkilli.pomodorotimer.controller.WorkCategoriesController;
-import net.justkilli.pomodorotimer.controller.WorkController;
+import net.justkilli.pomodorotimer.controller.*;
 import net.justkilli.pomodorotimer.gui.components.RoundBorder;
 import net.justkilli.pomodorotimer.gui.design.BorderDesign;
 import net.justkilli.pomodorotimer.gui.design.ColorDesign;
 import net.justkilli.pomodorotimer.gui.design.FontDesign;
 import net.justkilli.pomodorotimer.gui.windows.MainWindow;
-import net.justkilli.pomodorotimer.model.WorkCategory;
+import net.justkilli.pomodorotimer.gui.windows.WorkCategoriesWindow;
 import net.justkilli.pomodorotimer.model.WorkCategoryModel;
 import net.justkilli.pomodorotimer.model.WorkModel;
 import net.justkilli.pomodorotimer.model.database.DBAccessLayer;
@@ -61,9 +59,13 @@ public class Main {
         MainWindow window = new MainWindow(colorDesign, fontDesign, borderDesign);
         WorkCategoryModel workCategoryModel = new WorkCategoryModel(dbHandler);
         WorkModel workModel = new WorkModel(sql, dbHandler);
+        OpenWindowController openWindowController = new OpenWindowController(window);
+        WorkCategoriesWindow workCategoriesWindow = openWindowController.getWindow();
         new WorkCategoriesController(window, workCategoryModel);
+        new WorkCategoriesController(workCategoriesWindow, workCategoryModel);
         new WorkController(window, workModel);
         new WindowCloseController(window, workModel);
+        new SubmitWorkCategoryController(workCategoriesWindow, workCategoryModel);
         window.setVisible(true);
     }
 
