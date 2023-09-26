@@ -1,17 +1,18 @@
 package net.justkilli.pomodorotimer.gui.windows;
 
-import net.justkilli.pomodorotimer.gui.components.ColorArrowUI;
 import net.justkilli.pomodorotimer.gui.design.BorderDesign;
 import net.justkilli.pomodorotimer.gui.design.ColorDesign;
 import net.justkilli.pomodorotimer.gui.design.FontDesign;
 import net.justkilli.pomodorotimer.model.WorkCategory;
 
-import java.awt.event.WindowAdapter;
 import java.util.List;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+/**
+ * Represents the main window of the Pomodoro Timer application.
+ */
 public class MainWindow extends JFrame {
 
     private static final String TITLE = "Pomodoro Timer";
@@ -33,15 +34,23 @@ public class MainWindow extends JFrame {
     private JMenu mWindows;
     private JMenuItem miOpenWorkCategories;
 
+    /**
+     * Creates a new instance of MainWindow with the specified color design, font design, and border design.
+     *
+     * @param colorDesign The color design to be used by the main window.
+     * @param fontDesign The font design to be used by the main window.
+     * @param borderDesign The border design to be used by the main window.
+     */
     public MainWindow(ColorDesign colorDesign, FontDesign fontDesign, BorderDesign borderDesign) {
-        this.colorDesign = colorDesign;
-        this.fontDesign = fontDesign;
-        this.borderDesign = borderDesign;
         init();
         build();
-        updateDesign();
+        updateDesign(colorDesign, fontDesign, borderDesign);
     }
 
+    /**
+     * Initializes the frame by setting the default close operation,
+     * the window size, the title, and the layout of the content pane.
+     */
     private void init() {
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setSize(new Dimension(800, 800));
@@ -49,6 +58,10 @@ public class MainWindow extends JFrame {
         getContentPane().setLayout(new BorderLayout(10, 10));
     }
 
+    /**
+     * Builds the frame by creating and initializing the panels for the north, south,
+     * and center sections, setting the menu bar, and adding the panels to the content pane.
+     */
     public void build() {
         pnlNorth = buildNorthPanel();
         pnlSouth = buildSouthPanel();
@@ -61,6 +74,11 @@ public class MainWindow extends JFrame {
         getContentPane().add(pnlCenter, BorderLayout.CENTER);
     }
 
+    /**
+     * Builds the menu bar by creating and initializing the menu bar, menus, and menu items.
+     *
+     * @return The built menu bar.
+     */
     private JMenuBar buildMenuBar() {
         menuBar = new JMenuBar();
 
@@ -74,6 +92,11 @@ public class MainWindow extends JFrame {
         return menuBar;
     }
 
+    /**
+     * Builds the north panel by creating and initializing a JPanel with buttons for work, short break, and long break.
+     *
+     * @return The built north panel.
+     */
     private JPanel buildNorthPanel() {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 50, 10));
         panel.setPreferredSize(CONTROL_PNL_SIZE);
@@ -94,6 +117,11 @@ public class MainWindow extends JFrame {
         return panel;
     }
 
+    /**
+     * Builds the south panel by creating and initializing a JPanel with a button for starting the timer and a combo box for work categories.
+     *
+     * @return The built south panel.
+     */
     private JPanel buildSouthPanel() {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
         panel.setPreferredSize(CONTROL_PNL_SIZE);
@@ -110,6 +138,11 @@ public class MainWindow extends JFrame {
         return panel;
     }
 
+    /**
+     * Builds the center panel by creating and initializing a JPanel with a single label for displaying the timer.
+     *
+     * @return The built center panel.
+     */
     private JPanel buildCenterPanel() {
         JPanel panel = new JPanel(new GridLayout(0, 1));
         panel.setPreferredSize(CONTROL_PNL_SIZE);
@@ -124,6 +157,13 @@ public class MainWindow extends JFrame {
         return panel;
     }
 
+    /**
+     * Updates the design of the component by setting the color design, font design, and border design.
+     *
+     * @param colorDesign The color design to be applied.
+     * @param fontDesign The font design to be applied.
+     * @param borderDesign The border design to be applied.
+     */
     public void updateDesign(ColorDesign colorDesign, FontDesign fontDesign, BorderDesign borderDesign) {
         setColorDesign(colorDesign);
         setFontDesign(fontDesign);
@@ -131,6 +171,10 @@ public class MainWindow extends JFrame {
         updateDesign();
     }
 
+    /**
+     * Updates the design of the component by calling various methods to design different parts of the component.
+     * This method should be called after setting the color design, font design, and border design of the component.
+     */
     public void updateDesign() {
         designContentPane();
         designMenuBar();
@@ -139,10 +183,18 @@ public class MainWindow extends JFrame {
         designCenterPanel();
     }
 
+    /**
+     * Designs the content pane of the component by setting the background color.
+     * This method should be called after setting the color design, font design, and border design of the component.
+     */
     private void designContentPane() {
         getContentPane().setBackground(colorDesign.background());
     }
 
+    /**
+     * Designs the menu bar of the component by setting the background color, border, font, and colors of the menu items.
+     * This method should be called after setting the color design, font design, and border design of the component.
+     */
     private void designMenuBar() {
         menuBar.setBackground(colorDesign.background());
         menuBar.setBorder(borderDesign.components());
@@ -156,63 +208,40 @@ public class MainWindow extends JFrame {
         miOpenWorkCategories.setForeground(colorDesign.text());
         miOpenWorkCategories.setFont(fontDesign.text());
         miOpenWorkCategories.setBorder(borderDesign.components());
-        /*menuBar = new JMenuBar();
-
-        mWindows = new JMenu("Windows");
-
-        miOpenWorkCategories = new JMenuItem("WorkCategories");
-
-        mWindows.add(miOpenWorkCategories);
-        menuBar.add(mWindows);*/
-
     }
 
+    /**
+     * Designs the components of the north panel by calling the appropriate design methods.
+     * This method should be called after setting the color design, font design, and border design of the component.
+     * @see WindowUtils
+     */
     private void designNorthPanel() {
-        designBasePanel(pnlNorth);
-
-        designButton(btnWork);
-        designButton(btnShortBreak);
-        designButton(btnLongBreak);
+        WindowUtils.designBasePanel(pnlNorth, colorDesign, fontDesign, borderDesign);
+        WindowUtils.designButton(btnWork, colorDesign, fontDesign, borderDesign);
+        WindowUtils.designButton(btnShortBreak, colorDesign, fontDesign, borderDesign);
+        WindowUtils.designButton(btnLongBreak, colorDesign, fontDesign, borderDesign);
 
     }
 
+    /**
+     * Designs the components of the south panel by calling the appropriate design methods.
+     * This method should be called after setting the color design, font design, and border design of the component.
+     * @see WindowUtils
+     */
     private void designSouthPanel() {
-        designBasePanel(pnlSouth);
-
-        designComboBox(cbWorkCategories);
-        designButton(btnStart);
+        WindowUtils.designBasePanel(pnlSouth, colorDesign, fontDesign, borderDesign);
+        WindowUtils.designComboBox(cbWorkCategories, colorDesign, fontDesign, borderDesign);
+        WindowUtils.designButton(btnStart, colorDesign, fontDesign, borderDesign);
     }
 
+    /**
+     * Designs the components of the center panel by calling the appropriate design methods.
+     * This method should be called after setting the color design, font design, and border design of the component.
+     * @see WindowUtils
+     */
     private void designCenterPanel() {
-        designBasePanel(pnlCenter);
-
-        designLabel(lblTimer);
-    }
-
-    private void designButton(JButton button) {
-        button.setBackground(colorDesign.compBackground());
-        button.setForeground(colorDesign.buttonText());
-        button.setFont(fontDesign.buttons());
-        button.setBorder(borderDesign.buttons());
-    }
-
-    private void designComboBox(JComboBox<?> comboBox) {
-        comboBox.setBackground(colorDesign.compBackground());
-        comboBox.setForeground(colorDesign.text());
-        comboBox.setFont(fontDesign.text());
-        comboBox.setBorder(borderDesign.components());
-        comboBox.setUI(new ColorArrowUI(colorDesign.compBackground(), colorDesign.compBackground(), colorDesign.text(), colorDesign.compBackground()));
-    }
-
-    private void designLabel(JLabel label) {
-        label.setBackground(colorDesign.compBackground());
-        label.setForeground(colorDesign.text());
-        label.setFont(fontDesign.timer());
-        label.setBorder(borderDesign.components());
-    }
-
-    private void designBasePanel(JPanel panel) {
-        panel.setBackground(colorDesign.background());
+        WindowUtils.designBasePanel(pnlCenter, colorDesign, fontDesign, borderDesign);
+        WindowUtils.designLabel(lblTimer, colorDesign, fontDesign, borderDesign);
     }
 
     private void setColorDesign(ColorDesign colorDesign) {
@@ -242,6 +271,7 @@ public class MainWindow extends JFrame {
 
     //SOUTH PANEL START
     public void setWorkCategories(List<WorkCategory> categories) {
+        cbWorkCategories.removeAllItems();
         categories.forEach(cbWorkCategories::addItem);
     }
 
